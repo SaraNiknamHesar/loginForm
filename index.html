@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -58,6 +59,10 @@
 
         }
 
+        .input-container {
+            margin: 0 60px 50px 60px;
+        }
+
         .container .card .input-container input {
             outline: 0;
             z-index: 1;
@@ -85,7 +90,7 @@
 
         }
 
-        .container .card .input-container input:focus ~ label {
+        .container .card .input-container input:focus~label {
             transform: translate(12px, -12px);
             font-size: 14px;
         }
@@ -120,63 +125,228 @@
 
         }
 
-        .container .card .input-container input:hover ~ .bar:before,
-        .container .card .input-container input:hover ~ .bar:after {
+        .container .card .input-container input:hover~.bar:before,
+        .container .card .input-container input:hover~.bar:after {
             width: 50%;
+        }
+
+        .container .card .button-container {
+            margin: 0 60px;
+            text-align: center;
+
+        }
+
+        .container .card .button-container button {
+            outline: 0;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            background-color: transparent;
+            width: 240px;
+            border: 2px solid #e3e3e3;
+            padding: 13px 0;
+            font-size: 24px;
+            transition: all .3s ease;
+
+        }
+
+        .container .card .button-container button span {
+            position: relative;
+            /* z-index: 1; */
+            color: #d3d2d2;
+            transition: all .3s ease;
+        }
+
+        .container .card .button-container button:hover {
+            border-color: #ed2553;
+            color: #ed2553;
+        }
+
+        .container .card .button-container button:hover span {
+            border-color: #ed2553;
+            color: #ed2553;
+        }
+
+        .container .card .footer {
+            margin: 40px 0 0;
+            text-align: center;
+
+        }
+
+        .container .card .footer a {
+            color: #c0bfbf;
+            transition: color .3s ease;
+        }
+
+        .container .card .footer a:hover {
+            color: grey;
+
+        }
+
+        .container .alternative {
+            position: absolute;
+            top: 48px;
+            right: -56px;
+            width: 140px;
+            height: 140px;
+            background: none;
+            box-shadow: none;
+            border-radius: 100%;
+            transition: all .3s ease;
+            padding: 0;
+
+        }
+
+        .container .alternative .toggle {
+            position: relative;
+            background-color: #ed2553;
+            width: 140px;
+            height: 140px;
+            border-radius: 100%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .2);
+            color: white;
+            font-size: 58px;
+            line-height: 143px;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        .container .alternative .toggle:before {
+            content: "\f040";
+            font-family: "fontawesome";
+        }
+
+        .container .alternative .title,
+        .container .alternative .input-container,
+        .container .alternative .button-container {
+            left: 100px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .container .alternative .title {
+            position: relative;
+            border-color: white;
+            color: white;
+        }
+
+        .container .alternative .close:before {
+            content: "\00d7";
+            color: white;
+        }
+
+        .container .alternative .close {
+            cursor: pointer;
+            position: absolute;
+            top: -11px;
+            right: 38px;
+            display: inline;
+            font-size: 58px;
+        }
+
+        .active .card:first-child {
+            margin: 0 15px;
+            background-color: #f2f2f2;
+        }
+
+        .active .card:nth-child(2) {
+            margin: 0 10px;
+            background-color: #fafafa;
+        }
+
+        .active .alternative {
+            top: 20px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            padding: 60px 0 50px;
+            overflow: hidden;
+        }
+        .active .alternative .toggle{
+            position: absolute;
+            top: 40px;
+            left: -70px;
+            box-shadow: none;
+            transform: scale(10);
+
+        }
+        .active .alternative .toggle::before{
+            content: '  ';
+        }
+        .active .alternative .title,
+        .active .alternative .input-container,
+        .active .alternative .button-container {
+            left: 0;
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
-<body>
-<div class="project-title">Login form</div>
-<div class="container">
-    <div class="card"></div>
-    <div class="card">
-        <h1 class="title">Login</h1>
-        <form action="" method="post">
-            <div class="input-container">
-                <input type="text" name="" id="username" required>
-                <label for="username">username</label>
-                <div class="bar"></div>
-            </div>
-            <div class="input-container">
-                <input type="text" name="" id="password" required>
-                <label for="password">password</label>
-                <div class="bar"></div>
-            </div>
-            <div class="input-container">
-                <button><span>Lets Go</span></button>
-            </div>
-            <div class="footer"><a href="">Reset password</a></div>
-        </form>
-    </div>
-    <div class="card alternative">
-        <div class="toggle"></div>
-        <h1 class="title">Register
-            <div class="close"></div>
-        </h1>
-        <form action="" method="post">
-            <div class="input-container">
-                <input type="text" name="" id="user-name" required>
-                <label for="username">username</label>
-                <div class="bar"></div>
-            </div>
-            <div class="input-container">
-                <input type="text" name="" id="register-password" required>
-                <label for="password">password</label>
-                <div class="bar"></div>
-            </div>
-            <div class="input-container">
-                <input type="text" name="" id="repeat-password" required>
-                <label for="password">repeat password</label>
-                <div class="bar"></div>
-            </div>
-            <div class="button-container">
-                <button><span>Register</span></button>
-            </div>
 
-        </form>
+<body>
+    <div class="project-title">Login form</div>
+    <div class="container">
+        <div class="card"></div>
+        <div class="card">
+            <h1 class="title">Login</h1>
+            <form action="" method="post">
+                <div class="input-container">
+                    <input type="text" name="" id="username" required>
+                    <label for="username">username</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="" id="password" required>
+                    <label for="password">password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Lets Go</span></button>
+                </div>
+                <div class="footer"><a href="">Reset password</a></div>
+            </form>
+        </div>
+        <div class="card alternative">
+            <div class="toggle"></div>
+            <h1 class="title">Register
+                <div class="close"></div>
+            </h1>
+            <form action="" method="post">
+                <div class="input-container">
+                    <input type="text" name="" id="user-name" required>
+                    <label for="username">username</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="" id="register-password" required>
+                    <label for="password">password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="" id="repeat-password" required>
+                    <label for="password">repeat password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Register</span></button>
+                </div>
+
+            </form>
+        </div>
     </div>
-</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".toggle").on("click", function () {
+            $(".container").stop().addClass("active");
+        });
+        $('.close').on('click', function () {
+            $('.container').stop().removeClass('active');
+        })
+    });
+</script>
+
 </html>
